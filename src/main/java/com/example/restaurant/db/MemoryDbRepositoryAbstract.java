@@ -10,7 +10,7 @@ abstract public class MemoryDbRepositoryAbstract<T extends MemoryDbEntity> imple
     private int index = 0;
 
     @Override
-    public Optional findById(int index) {
+    public Optional<T> findById(int index) {
         return db.stream().filter(it->it.getIndex()==index).findFirst();
     }
 
@@ -44,7 +44,7 @@ abstract public class MemoryDbRepositoryAbstract<T extends MemoryDbEntity> imple
     }
 
     @Override
-    public List listAll() {
+    public List<T> listAll() {
         return db;
     }
 }
